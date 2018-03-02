@@ -1,0 +1,12 @@
+PREFIX GOT: <https://tutorial.linked.data.world/d/sparqltutorial/>
+
+SELECT ?name ?birthMonth
+
+WHERE {
+    ?person GOT:col-got-fname ?fname ;
+            GOT:col-got-lname ?lname ;
+            GOT:col-got-birthdate ?birthdate .
+    BIND (MONTH(?birthdate) AS ?birthMonth)
+    BIND (CONCAT(?fname, " ", ?lname) AS ?name)
+    FILTER (?birthMonth = 4)
+}

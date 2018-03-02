@@ -1,0 +1,12 @@
+PREFIX GOT: <https://tutorial.linked.data.world/d/sparqltutorial/>
+
+SELECT ?fname ?lname ?house ?totalpagespov
+
+WHERE {
+    ?person GOT:col-got-fname ?fname .
+    ?person2 GOT:col-got2-name ?fname .
+    ?person GOT:col-got-lname ?lname .
+    ?person GOT:col-got-house ?house .
+    ?person2 GOT:col-got2-totalpagespov ?totalpagespov .
+    FILTER (?house = "Stark")
+}
